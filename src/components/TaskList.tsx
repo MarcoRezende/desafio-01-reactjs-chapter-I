@@ -48,6 +48,10 @@ export function TaskList() {
     const allTasks = [...tasks];
     const taskIndex = allTasks.findIndex((task) => task.id === id);
 
+    if (taskIndex === -1) {
+      throw new Error("Tarefa não encontrada.");
+    }
+
     allTasks.splice(taskIndex, 1);
 
     setTasks(allTasks);
